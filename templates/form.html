@@ -1,128 +1,142 @@
+<!DOCTYPE html>
 <html>
+<head>
+  <meta charset="UTF-8">
+  <title>Predict Census Income</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}">
+  
+</head>
+
 <body>
-<form action="{{url_for('predict_datapoint')}}" method="POST">
-    <div class="form-group">
-        <label for="age">age:</label>
-        <input type="text" id="age" name="age" placeholder="Enter age value (float)">
-    </div>
+ <div class="login">
+	<h3>Predict Census Income</h3>
 
-    <div class="form-group">
-        <label for="education_num">education_num:</label>
-        <input type="text" id="education_num" name="education_num" placeholder="Enter education_num value (float)">
-    </div>
-
-    <div class="form-group">  
-        <label for="capital_gain">capital_gain:</label>
-        <input type="text" id="capital_gain" name="capital_gain" placeholder="Enter capital_gain value (float)">
-    </div>
+     <!-- Form to enter new data for predictions  -->
+     <form action="{{url_for('predict_datapoint')}}" method="POST">
+      <div class="form-group">
+          <label for="age">age:</label>
+          <input type="text" id="age" name="age" placeholder="Enter age value (float)">
+      </div>
+  
+      <div class="form-group">
+          <label for="education_num">education_num:</label>
+          <input type="text" id="education_num" name="education_num" placeholder="Enter education_num value (float)">
+      </div>
+  
+      <div class="form-group">  
+          <label for="capital_gain">capital_gain:</label>
+          <input type="text" id="capital_gain" name="capital_gain" placeholder="Enter capital_gain value (float)">
+      </div>
+      
+      <div class="form-group">
+          <label for="hours_per_week">hours_per_week:</label>
+          <input type="text" id="hours_per_week" name="hours_per_week" placeholder="Enter hours_per_week value (float)">
+      </div>     
     
-    <div class="form-group">
-        <label for="hours_per_week">hours_per_week:</label>
-        <input type="text" id="hours_per_week" name="hours_per_week" placeholder="Enter hours_per_week value (float)">
-    </div>     
-  
-<div class="form-group">
-  <label for="workclass">workclass:</label>
-  <select id="workclass" name="workclass">
-    <option value="Private">Private</option>
-    <option value="Self-emp-not-inc">Self-emp-not-inc</option>
-    <option value="Self-emp-inc">Self-emp-inc</option>
-    <option value="Federal-gov">Federal-gov</option>
-    <option value="Local-gov">Local-gov</option>
-    <option value="State-gov">State-gov</option>
-    <option value="Without-pay">Without-pay</option>
-    <option value="Never-worked">Never-worked</option>
-  </select>
-</div>
-  
-<div class="form-group">
-  <label for="education">education:</label>
-  <select id="education" name="education">
-    <option value="Bachelors">Bachelors</option>
-    <option value="Some-college">Some-college</option>
-    <option value="11th">11th</option>
-    <option value="HS-grad">HS-grad</option>
-    <option value="Prof-school">Prof-school</option>
-    <option value="Assoc-acdm">Assoc-acdm</option>
-    <option value="Assoc-voc">Assoc-voc</option> 
-    <option value="9th">9th</option>
-    <option value="7th-8th">7th-8th</option>
-    <option value="12th">12th</option>
-    <option value="Masters">Masters</option>
-    <option value="1st-4th">1st-4th</option>
-    <option value="10th">10th</option>
-    <option value="Doctorate">Doctorate</option>
-    <option value="Preschool">Preschool</option>
-    <option value="5th-6th">5th-6th</option>
-  </select>
-</div>
-
-<div class="form-group">
-  <label for="marital_status">marital_status:</label>
-  <select id="marital_status" name="marital_status">
-    <option value="Married-civ-spouse">Married-civ-spouse</option>
-    <option value="Divorced">Divorced</option>
-    <option value="Never-married">Never-married</option>
-    <option value="Separated">Separated</option>
-    <option value="Widowed">Widowed</option>
-    <option value="Married-spouse-absent">Married-spouse-absent</option>
-    <option value="Married-AF-spouse">Married-AF-spouse</option>
-  </select>
-</div>
-
-<div class="form-group">
-    <label for="occupation">occupation:</label>
-    <select id="occupation" name="occupation">
-      <option value="Tech-support">Tech-support</option>
-      <option value="Craft-repair">Craft-repair</option>
-      <option value="Other-service">Other-service</option>
-      <option value="Sales">Sales</option>
-      <option value="Exec-managerial">Exec-managerial</option>
-      <option value="Prof-specialty">Prof-specialty</option>
-      <option value="Handlers-cleaners">Handlers-cleaners</option>
-      <option value="Machine-op-inspct">Machine-op-inspct</option>
-      <option value="Adm-clerical">Adm-clerical</option>
-      <option value="Farming-fishing">Farming-fishing</option>
-      <option value="Transport-moving">Transport-moving</option>
-      <option value="Priv-house-serv">Priv-house-serv</option>
-      <option value="Protective-serv">Protective-serv</option>
-      <option value="Armed-Forces">Armed-Forces</option>
+  <div class="form-group">
+    <label for="workclass">workclass:</label>
+    <select id="workclass" name="workclass">
+      <option value="Private">Private</option>
+      <option value="Self-emp-not-inc">Self-emp-not-inc</option>
+      <option value="Self-emp-inc">Self-emp-inc</option>
+      <option value="Federal-gov">Federal-gov</option>
+      <option value="Local-gov">Local-gov</option>
+      <option value="State-gov">State-gov</option>
+      <option value="Without-pay">Without-pay</option>
+      <option value="Never-worked">Never-worked</option>
     </select>
   </div>
-
-<div class="form-group">
-<label for="relationship">relationship:</label>
-<select id="relationship" name="relationship">
-    <option value="Wife">Wife</option>
-    <option value="Husband">Husband</option>
-    <option value="Own-child">Own-child</option>
-    <option value="Not-in-family">Not-in-family</option>
-    <option value="Other-relative">Other-relative</option>
-    <option value="Unmarried">Unmarried</option>
-</select>
-</div>
-
-<div class="form-group">
-<label for="race">race:</label>
-<select id="race" name="race">
-    <option value="White">White</option>
-    <option value="Asian-Pac-Islander">Asian-Pac-Islander</option>
-    <option value="Amer-Indian-Eskimo">Amer-Indian-Eskimo</option>
-    <option value="Other">Other</option>
-    <option value="Black">Black</option>
-</select>
-</div>
-
-<div class="form-group">
-<label for="sex">sex:</label>
-<select id="sex" name="sex">
-    <option value="Female">Female</option>
-    <option value="Male">Male</option>
-</select>
-</div>
-
-<div style="clear:both;"></div>
-  <input type="submit" value="Submit">
+    
+  <div class="form-group">
+    <label for="education">education:</label>
+    <select id="education" name="education">
+      <option value="Bachelors">Bachelors</option>
+      <option value="Some-college">Some-college</option>
+      <option value="11th">11th</option>
+      <option value="HS-grad">HS-grad</option>
+      <option value="Prof-school">Prof-school</option>
+      <option value="Assoc-acdm">Assoc-acdm</option>
+      <option value="Assoc-voc">Assoc-voc</option> 
+      <option value="9th">9th</option>
+      <option value="7th-8th">7th-8th</option>
+      <option value="12th">12th</option>
+      <option value="Masters">Masters</option>
+      <option value="1st-4th">1st-4th</option>
+      <option value="10th">10th</option>
+      <option value="Doctorate">Doctorate</option>
+      <option value="Preschool">Preschool</option>
+      <option value="5th-6th">5th-6th</option>
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="marital_status">marital_status:</label>
+    <select id="marital_status" name="marital_status">
+      <option value="Married-civ-spouse">Married-civ-spouse</option>
+      <option value="Divorced">Divorced</option>
+      <option value="Never-married">Never-married</option>
+      <option value="Separated">Separated</option>
+      <option value="Widowed">Widowed</option>
+      <option value="Married-spouse-absent">Married-spouse-absent</option>
+      <option value="Married-AF-spouse">Married-AF-spouse</option>
+    </select>
+  </div>
+  
+  <div class="form-group">
+      <label for="occupation">occupation:</label>
+      <select id="occupation" name="occupation">
+        <option value="Tech-support">Tech-support</option>
+        <option value="Craft-repair">Craft-repair</option>
+        <option value="Other-service">Other-service</option>
+        <option value="Sales">Sales</option>
+        <option value="Exec-managerial">Exec-managerial</option>
+        <option value="Prof-specialty">Prof-specialty</option>
+        <option value="Handlers-cleaners">Handlers-cleaners</option>
+        <option value="Machine-op-inspct">Machine-op-inspct</option>
+        <option value="Adm-clerical">Adm-clerical</option>
+        <option value="Farming-fishing">Farming-fishing</option>
+        <option value="Transport-moving">Transport-moving</option>
+        <option value="Priv-house-serv">Priv-house-serv</option>
+        <option value="Protective-serv">Protective-serv</option>
+        <option value="Armed-Forces">Armed-Forces</option>
+      </select>
+    </div>
+  
+  <div class="form-group">
+  <label for="relationship">relationship:</label>
+  <select id="relationship" name="relationship">
+      <option value="Wife">Wife</option>
+      <option value="Husband">Husband</option>
+      <option value="Own-child">Own-child</option>
+      <option value="Not-in-family">Not-in-family</option>
+      <option value="Other-relative">Other-relative</option>
+      <option value="Unmarried">Unmarried</option>
+  </select>
+  </div>
+  
+  <div class="form-group">
+  <label for="race">race:</label>
+  <select id="race" name="race">
+      <option value="White">White</option>
+      <option value="Asian-Pac-Islander">Asian-Pac-Islander</option>
+      <option value="Amer-Indian-Eskimo">Amer-Indian-Eskimo</option>
+      <option value="Other">Other</option>
+      <option value="Black">Black</option>
+  </select>
+  </div>
+  
+  <div class="form-group">
+  <label for="sex">sex:</label>
+  <select id="sex" name="sex">
+      <option value="Female">Female</option>
+      <option value="Male">Male</option>
+  </select>
+  <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
 </form>
+
 </body>
 </html>
