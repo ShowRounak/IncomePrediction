@@ -1,4 +1,4 @@
-age,workclass,fnlwgt,education,education-num,marital-status,occupation,relationship,race,sex,capital-gain,capital-loss,hours-per-week,native-country,income
+age,workclass,fnlwgt,education,education_num,marital_status,occupation,relationship,race,sex,capital_gain,capital_loss,hours_per_week,native_country,income
 36,Private,127573,HS-grad,9,Separated,Adm-clerical,Not-in-family,White,Female,0,0,38,United-States,<=50K
 52,Private,114228,HS-grad,9,Divorced,Craft-repair,Not-in-family,White,Male,3325,0,40,United-States,<=50K
 34,Private,209808,Some-college,10,Married-civ-spouse,Adm-clerical,Husband,White,Male,0,0,40,United-States,>50K

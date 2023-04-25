@@ -27,7 +27,7 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logging.info('Data Ingestion method starts')
         try:
-            df = pd.read_csv('notebooks/data/adult.data',names = ['age', 'workclass','fnlwgt','education','education-num','marital-status','occupation','relationship','race','sex','capital-gain','capital-loss','hours-per-week','native-country','income'])
+            df = pd.read_csv('notebooks/data/adult.data',names = ['age', 'workclass','fnlwgt','education','education_num','marital_status','occupation','relationship','race','sex','capital_gain','capital_loss','hours_per_week','native_country','income'])
             logging.info('Dataset read as pandas DataFrame')
             df.drop_duplicates(keep='first',inplace=True)
             logging.info('Drop duplicates')

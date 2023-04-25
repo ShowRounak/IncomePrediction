@@ -1,4 +1,4 @@
-age,workclass,fnlwgt,education,education-num,marital-status,occupation,relationship,race,sex,capital-gain,capital-loss,hours-per-week,native-country,income
+age,workclass,fnlwgt,education,education_num,marital_status,occupation,relationship,race,sex,capital_gain,capital_loss,hours_per_week,native_country,income
 31,State-gov,33308,Assoc-voc,11,Married-civ-spouse,Craft-repair,Husband,White,Male,0,0,40,United-States,<=50K
 24,Federal-gov,130534,Bachelors,13,Never-married,Exec-managerial,Not-in-family,White,Male,0,0,40,United-States,<=50K
 60,Local-gov,98350,Some-college,10,Married-civ-spouse,Other-service,Husband,Asian-Pac-Islander,Male,0,0,60,Philippines,<=50K
